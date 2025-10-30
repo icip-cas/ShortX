@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shortx"
+version = "0.1.0"
+description = "A unified optimization toolkit for LLM - currently includes ShortGPT and ShortV, with more tools coming"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "ShortX Team", email = "ttraveller2001@gmail.com"}
+]
+keywords = ["LLM", "VLM", "pruning tool"]
+
+dependencies = [
+    "setuptools==65.5.1",
+    "sentencepiece==0.2.1",
+    "pyarrow==19.0.1",
+    "torch",
+    "transformers==4.50.0",
+    "numpy",
+    "tqdm",
+    "datasets",
+    "accelerate",
+    "tokenizers",
+    "protobuf",
+    "scipy",
+    "requests",
+    "pydantic",
+    "loguru",
+    "pillow"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/icip-cas/ShortX"
+"Bug Reports" = "https://github.com/icip-cas/ShortX/issues"
+"Source" = "https://github.com/icip-cas/ShortX"
+
+[project.scripts]
+shortx = "shortx.cli:main"
+shortgpt = "shortx.shortgpt.cli:main"
+shortv = "shortx.shortv.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["shortx*"]
+
+[tool.setuptools.package-data]
+shortx = ["**/*.json", "**/*.jsonl", "**/*.yaml", "**/*.yml", "**/*.txt"]
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+
+[tool.pip]
+extra-index-url = [
+  "https://pypi.tuna.tsinghua.edu.cn/simple",
+]
+
+[tool.isort]
+profile = "black"
+line_length = 120

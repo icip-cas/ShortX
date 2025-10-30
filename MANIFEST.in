@@ -1,0 +1,51 @@
+# Include documentation and license files
+include README.md
+include LICENSE
+include CITATION.cff
+
+# Include configuration files
+include pyproject.toml
+include setup.py
+include requirements.txt
+
+# Include all Python source files
+recursive-include shortx *.py
+
+# Include data files
+recursive-include shortx/shortv/data *.parquet
+recursive-include shortx/shortv/data *.json
+
+# Include example files
+recursive-include shortx/examples *.py
+recursive-include shortx/examples *.jpg
+recursive-include shortx/examples *.png
+
+# Include configuration files
+recursive-include shortx *.json
+recursive-include shortx *.yaml
+recursive-include shortx *.yml
+
+# Include text files (if any)
+recursive-include shortx *.txt
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *$py.class
+global-exclude *.so
+global-exclude .DS_Store
+global-exclude .gitignore
+global-exclude *.swp
+global-exclude *.swo
+global-exclude *~
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude *.egg-info
+
+# Exclude test files from distribution (optional)
+# recursive-exclude tests *
+
+# Exclude development files
+exclude .gitignore
+exclude .claude
+recursive-exclude .claude *
